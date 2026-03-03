@@ -1,3 +1,12 @@
+<p align="center">
+  <img src="https://cdn.simpleicons.org/nodedotjs/339933" width="50" alt="Node.js" />
+  <img src="https://cdn.simpleicons.org/express/000000" width="50" alt="Express" />
+  <img src="https://cdn.simpleicons.org/mongodb/47A248" width="50" alt="MongoDB" />
+  <img src="https://cdn.simpleicons.org/docker/2496ED" width="50" alt="Docker" />
+</p>
+
+
+
 
 
 <p align="center">
