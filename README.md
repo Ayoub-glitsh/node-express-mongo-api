@@ -18,7 +18,7 @@
 
 
 <p align="center">
-  <img src="assets/image_01.png" width="700" alt="Project Image" />
+  <img src="assets/image_01png.png" width="700" alt="Project Image" />
 </p>
 
 
