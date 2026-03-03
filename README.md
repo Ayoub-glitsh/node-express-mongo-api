@@ -14,6 +14,15 @@
   </p>
 </div>
 
+
+
+
+<p align="center">
+  <img src="assets/" width="700" alt="Project Image" />
+</p>
+
+
+
 📄 Documentation – API Node.js + MongoDB avec Docker Compose
 ============================================================
 
