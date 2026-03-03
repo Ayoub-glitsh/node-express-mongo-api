@@ -78,29 +78,54 @@ L’objectif est de démontrer :
 4\. ⚙️ Technologies utilisées
 -----------------------------
 
-Technologie
+<table align="center">
+  <tr>
+    <th>Technologie</th>
+    <th>Rôle</th>
+  </tr>
 
-Rôle
+  <tr>
+    <td align="center">
+      <img src="https://cdn.simpleicons.org/nodedotjs/339933" width="20"/> 
+      <strong>Node.js</strong>
+    </td>
+    <td>Environnement backend</td>
+  </tr>
 
-Node.js
+  <tr>
+    <td align="center">
+      <img src="https://cdn.simpleicons.org/express/000000" width="20"/> 
+      <strong>Express</strong>
+    </td>
+    <td>Framework API REST</td>
+  </tr>
 
-Environnement backend
+  <tr>
+    <td align="center">
+      <img src="https://cdn.simpleicons.org/mongodb/47A248" width="20"/> 
+      <strong>MongoDB</strong>
+    </td>
+    <td>Base de données NoSQL</td>
+  </tr>
 
-Express
+  <tr>
+    <td align="center">
+      <img src="https://cdn.simpleicons.org/docker/2496ED" width="20"/> 
+      <strong>Docker</strong>
+    </td>
+    <td>Conteneurisation</td>
+  </tr>
 
-Framework API REST
+  <tr>
+    <td align="center">
+      <img src="https://cdn.simpleicons.org/docker/2496ED" width="20"/> 
+      <strong>Docker Compose</strong>
+    </td>
+    <td>Orchestration multi-services</td>
+  </tr>
 
-MongoDB
+</table>
 
-Base de données NoSQL
-
-Docker
-
-Conteneurisation
-
-Docker Compose
-
-Orchestration multi-services
 
 * * *
 
