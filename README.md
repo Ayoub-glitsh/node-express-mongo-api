@@ -1,84 +1,294 @@
-<div align="center">
 
-<h1>node-express-mongo-api</h1>
+  
 
-<p>
-  <img src="https://img.shields.io/badge/Node.js-20.x-339933.svg?logo=node.js&logoColor=white" alt="Node.js" />
-  <img src="https://img.shields.io/badge/Express-4.x-000000.svg?logo=express&logoColor=white" alt="Express" />
-  <img src="https://img.shields.io/badge/MongoDB-7.x-47A248.svg?logo=mongodb&logoColor=white" alt="MongoDB" />
-  <img src="https://img.shields.io/badge/Docker-Compose-2496ED.svg?logo=docker&logoColor=white" alt="Docker Compose" />
-</p>
 
-<p>API REST minimaliste en Node.js (Express) connectée à MongoDB via le driver natif, orchestrée avec Docker Compose.</p>
 
-<!-- Mini animation SVG (peut être statique si la plateforme désactive l'animation) -->
-<svg width="120" height="20" viewBox="0 0 120 20" xmlns="http://www.w3.org/2000/svg">
-  <circle cx="20" cy="10" r="6" fill="#47A248">
-    <animate attributeName="r" values="6;3;6" dur="1.2s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="60" cy="10" r="6" fill="#2496ED">
-    <animate attributeName="r" values="6;3;6" dur="1.2s" begin="0.2s" repeatCount="indefinite"/>
-  </circle>
-  <circle cx="100" cy="10" r="6" fill="#339933">
-    <animate attributeName="r" values="6;3;6" dur="1.2s" begin="0.4s" repeatCount="indefinite"/>
-  </circle>
-</svg>
+📄 Documentation – API Node.js + MongoDB avec Docker Compose
+============================================================
 
-</div>
+1\. 📌 Présentation du projet
+-----------------------------
 
-## Aperçu
-- Express expose 3 routes : `GET /`, `GET /items`, `POST /items`.
-- Connexion MongoDB via `MONGO_URL` (driver natif `mongodb`).
-- Orchestration avec Docker Compose : services `api` et `mongo`, ports 3000/27017, volume persistant.
+Ce projet est une API REST développée avec **Node.js (Express)** et connectée à une base de données **MongoDB**.  
+L’ensemble est conteneurisé avec **Docker** et orchestré via **Docker Compose**.
 
-## Démarrage rapide
-1. Construire et lancer
-   - `docker compose up -d --build`
-2. Vérifier les services
-   - `docker compose ps`
-3. Consulter les logs
-   - `docker compose logs -f api`
-4. Tester
-   - `curl http://localhost:3000/`
+L’objectif est de démontrer :
 
-## Endpoints
-- `GET /`  
-  Renvoie l’état de l’API et l’URL Mongo.
+*   L’orchestration multi-services avec Docker Compose
+    
+*   La communication entre conteneurs
+    
+*   La persistance des données avec volumes
+    
+*   La création d’une API REST simple
+    
 
-- `GET /items`  
-  Liste les documents de la collection `items` (triés par `createdAt` desc).
+* * *
 
-- `POST /items`  
-  Crée un document. Corps JSON attendu (ex. `{ "name": "exemple", "value": 42 }`).
+2\. 🏗 Architecture du projet
+-----------------------------
 
-## Variables d’environnement
-- `MONGO_URL` : URI MongoDB (ex : `mongodb://mongo:27017/appdb`).
-- `PORT` : port HTTP de l’API (par défaut : `3000`).
+### Structure des services :
 
-## Exemples cURL
-- Santé :  
-  `curl http://localhost:3000/`
+*   **Service API**
+    
+    *   Node.js + Express
+        
+    *   Expose le port 3000
+        
+    *   Se connecte à MongoDB via variable d’environnement
+        
+*   **Service MongoDB**
+    
+    *   Image officielle MongoDB
+        
+    *   Expose le port 27017
+        
+    *   Utilise un volume pour la persistance des données
+        
 
-- Création :  
-  `curl -H "Content-Type: application/json" -d "{\"name\":\"exemple\",\"value\":42}" -X POST http://localhost:3000/items`
+* * *
 
-- Liste :  
-  `curl http://localhost:3000/items`
+3\. 📂 Structure du projet
+--------------------------
 
-## Architecture (Compose)
-```mermaid
-flowchart LR
-  C[Client] -->|HTTP:3000| A[API (Express)]
-  A -- MONGO_URL --> M[(MongoDB)]
-  M --- V[(Volume: mongo-data)]
-```
+    api-mongo-docker/
+    │
+    ├── docker-compose.yml
+    │
+    └── api/
+        ├── Dockerfile
+        ├── package.json
+        └── server.js
+    
 
-## Dépannage
-- Assurez-vous que Docker Desktop est démarré.
-- Si `GET /items` renvoie une liste vide, créez un item avec `POST /items`.
-- En cas d’échec réseau, vérifiez que les ports `3000` et `27017` ne sont pas occupés.
+* * *
 
----
+4\. ⚙️ Technologies utilisées
+-----------------------------
 
-<sub>Icônes SVG via shields.io (SVG), petite animation en SVG pour l’illustration.</sub>
+Technologie
 
+Rôle
+
+Node.js
+
+Environnement backend
+
+Express
+
+Framework API REST
+
+MongoDB
+
+Base de données NoSQL
+
+Docker
+
+Conteneurisation
+
+Docker Compose
+
+Orchestration multi-services
+
+* * *
+
+5\. 🚀 Installation et exécution
+--------------------------------
+
+### 1️⃣ Prérequis
+
+*   Docker installé
+    
+*   Docker Compose activé
+    
+
+Vérifier :
+
+    docker --version
+    docker compose version
+    
+
+* * *
+
+### 2️⃣ Lancer le projet
+
+Depuis la racine du projet :
+
+    docker compose up --build
+    
+
+Cela va :
+
+*   Construire l’image API
+    
+*   Télécharger l’image MongoDB
+    
+*   Créer le réseau interne
+    
+*   Démarrer les deux conteneurs
+    
+
+* * *
+
+### 3️⃣ Arrêter le projet
+
+    docker compose down
+    
+
+* * *
+
+6\. 🔗 Endpoints API
+--------------------
+
+### GET /
+
+Vérifie que l’API fonctionne.
+
+Réponse :
+
+    {
+      "message": "API is running"
+    }
+    
+
+* * *
+
+### POST /items
+
+Ajoute un nouvel élément.
+
+Body JSON :
+
+    {
+      "name": "Produit test"
+    }
+    
+
+* * *
+
+### GET /items
+
+Retourne tous les éléments enregistrés.
+
+* * *
+
+7\. 🗄 Base de données
+----------------------
+
+*   Base : `appdb`
+    
+*   Collection : `items`
+    
+*   Structure document :
+    
+
+    {
+      "_id": "ObjectId",
+      "name": "string",
+      "createdAt": "Date"
+    }
+    
+
+* * *
+
+8\. 🔐 Variables d’environnement
+--------------------------------
+
+Dans `docker-compose.yml` :
+
+    MONGO_URL=mongodb://mongo:27017/appdb
+    
+
+Explication :
+
+*   `mongo` = nom du service Docker
+    
+*   `27017` = port MongoDB interne
+    
+*   `appdb` = nom de la base
+    
+
+Docker crée automatiquement un réseau interne permettant aux services de communiquer via leur nom.
+
+* * *
+
+9\. 💾 Persistance des données
+------------------------------
+
+Le volume :
+
+    volumes:
+      mongo_data:
+    
+
+Permet de conserver les données même si les conteneurs sont supprimés.
+
+* * *
+
+10\. 📊 Fonctionnement interne
+------------------------------
+
+1.  Docker Compose crée un réseau interne.
+    
+2.  MongoDB démarre.
+    
+3.  L’API attend MongoDB.
+    
+4.  L’API se connecte via `MONGO_URL`.
+    
+5.  Les requêtes HTTP modifient la base MongoDB.
+    
+6.  Les données sont stockées dans le volume.
+    
+
+* * *
+
+11\. 🎯 Objectifs pédagogiques
+------------------------------
+
+Ce projet permet de comprendre :
+
+*   Communication inter-conteneurs
+    
+*   Variables d’environnement Docker
+    
+*   Orchestration multi-services
+    
+*   Persistance avec volumes
+    
+*   Création d’une API REST simple
+    
+
+* * *
+
+12\. 🔮 Améliorations possibles
+-------------------------------
+
+*   Ajouter Mongoose
+    
+*   Ajouter PUT / DELETE
+    
+*   Ajouter authentification JWT
+    
+*   Ajouter validation avancée
+    
+*   Ajouter Swagger (documentation API)
+    
+*   Ajouter tests automatisés
+    
+
+* * *
+
+Si tu veux, je peux aussi te générer :
+
+*   📘 Une version prête pour README GitHub
+    
+*   📊 Un diagramme professionnel pour ton portfolio
+    
+*   📄 Un rapport de projet format PDF
+    
+*   🏗 Une version architecture microservices plus avancée
+    
+
+Dis-moi pour quoi tu veux l’utiliser (GitHub, stage, portfolio, soutenance).
