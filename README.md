@@ -1,6 +1,8 @@
 
-  
 
+<p align="center">
+  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&size=26&pause=1000&center=true&vCenter=true&width=750&lines=Scalable+REST+API+Architecture;Built+with+Node.js+and+MongoDB;Containerized+with+Docker+Compose;Backend+Engineering+Practice+Project" alt="Typing SVG" />
+</p>
 
 
 <div align="center">
