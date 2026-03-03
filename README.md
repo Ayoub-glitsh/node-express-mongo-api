@@ -3,8 +3,19 @@
 
 
 
+<div align="center">
+  <p>
+    <img src="https://img.shields.io/badge/Node.js-20.x-339933.svg?logo=node.js&logoColor=white" alt="Node.js" />
+    <img src="https://img.shields.io/badge/Express-4.x-000000.svg?logo=express&logoColor=white" alt="Express" />
+    <img src="https://img.shields.io/badge/MongoDB-7.x-47A248.svg?logo=mongodb&logoColor=white" alt="MongoDB" />
+    <img src="https://img.shields.io/badge/Docker-Compose-2496ED.svg?logo=docker&logoColor=white" alt="Docker Compose" />
+  </p>
+</div>
+
 📄 Documentation – API Node.js + MongoDB avec Docker Compose
 ============================================================
+
+
 
 1\. 📌 Présentation du projet
 -----------------------------
@@ -279,16 +290,3 @@ Ce projet permet de comprendre :
     
 
 * * *
-
-Si tu veux, je peux aussi te générer :
-
-*   📘 Une version prête pour README GitHub
-    
-*   📊 Un diagramme professionnel pour ton portfolio
-    
-*   📄 Un rapport de projet format PDF
-    
-*   🏗 Une version architecture microservices plus avancée
-    
-
-Dis-moi pour quoi tu veux l’utiliser (GitHub, stage, portfolio, soutenance).
